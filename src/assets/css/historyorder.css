@@ -1,0 +1,79 @@
+.route-wrapper {position: relative;}
+.route { padding-top: 100px; }
+.station-dot { position: relative; }
+/* Gạch trái */
+.station-dot::before {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #11caf0;
+    display: block;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Chấm */
+.station-dot::after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background: #cff4fc;
+    border: 3px solid #11caf0;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: .25s;
+    cursor: pointer;
+}
+.route .row .station-dot:first-child:before { display: none; }
+
+/* Click */
+.station-dot:checked::after {
+    background: #11caf0;
+    border: 3px solid #11caf0;
+}
+.station-dot:checked ~ .station-dot::after {
+    background: #fff;
+    border: 3px solid #aaa;
+}
+.station-dot:checked ~ .station-dot::before {
+    background: #999;
+}
+.station-dot:hover::after {
+    transform: translate(-50%, -50%) scale(1.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+/* Tên ga */
+.station-name { position: relative; }
+.station-name label {
+    position: absolute;
+    left: 50%;
+    top: -40px;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    white-space: nowrap;
+    font-size: .8em;
+}
+/* Tên tuyến */
+.route-name {
+    background: #ffd900;
+    padding: 10px 20px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+.route-wrapper:hover .route-name {
+    padding: 10px 60px;
+    font-weight: bold;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+
+}
+.route-tooltip { --bs-tooltip-bg: var(--bs-primary); }

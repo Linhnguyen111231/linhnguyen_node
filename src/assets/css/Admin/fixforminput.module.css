@@ -1,0 +1,8 @@
+.fxinputSelect{
+    border: 1px solid #ccc !important;
+    font-size: 13px !important;
+    width: 100%;
+}
+.user{
+	display: flex !important;
+}
